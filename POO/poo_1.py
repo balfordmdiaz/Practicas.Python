@@ -1,12 +1,13 @@
-#####Parte 3 Metodo Constructor
-
-
 class Carro():
-    #OBJETOS:
-    largoChasis = 250
-    anchoChasis = 120
-    ruedas = 4
-    enmarcha = False
+
+    def __init__(self):     #Metodo Constructor
+
+        #Forman parte del estado inicial
+        #OBJETOS:
+        self.__largoChasis = 250
+        self.__anchoChasis = 120
+        self.__ruedas = 4       #Encapsulando la variable ---que no es accesible fuera de la clase
+        self.enmarcha = False
 
     #METODO
     def arrancar(self, arrancamos):
@@ -21,7 +22,7 @@ class Carro():
             return "El carro esta detenido"
 
     def estado(self):
-        print("El carro tiene ", self.ruedas, " ruedas. Un ancho de ", self.anchoChasis, " y un largo de ", self.largoChasis)
+        print("El carro tiene ", self.__ruedas, " ruedas. Un ancho de ", self.__anchoChasis, " y un largo de ", self.__largoChasis)
 
 
 miCarro = Carro() ####Instanciando una clase
