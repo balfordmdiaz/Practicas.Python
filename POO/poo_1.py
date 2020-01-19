@@ -7,23 +7,41 @@ class Carro():
         self.__largoChasis = 250
         self.__anchoChasis = 120
         self.__ruedas = 4       #Encapsulando la variable ---que no es accesible fuera de la clase
-        self.enmarcha = False
+        self.__enmarcha = False
 
     #METODO
     def arrancar(self, arrancamos):
         
 #        pass#Hace que pase ya que no tiene parametros el metodo
-        self.enmarcha = arrancamos
+        self.__enmarcha = arrancamos
 
-        if(self.enmarcha):
+        if (self.__enmarcha):      
+            chequeo = self.__chequeo_interno()  #Se crea esta variable para que sea accesible al metodo 
+        
+        if(self.__enmarcha and chequeo):
             return "El carro esta en marcha"
         
+        if(self.__enmarcha and chequeo == False):
+            return "Algo ha ido mal con el chequeo. No podemos arrancar"
+
         else:
             return "El carro esta detenido"
 
     def estado(self):
         print("El carro tiene ", self.__ruedas, " ruedas. Un ancho de ", self.__anchoChasis, " y un largo de ", self.__largoChasis)
+    
+    def __chequeo_interno(self):
+        print("Realizando Chequeo Interno")
 
+        self.gasolina = "Ok"
+        self.aceite = "Ok"
+        self.puertas = "Cerradas"
+
+        if(self.gasolina == "Ok" and self.aceite == "Ok" and self.puertas == "Cerradas"):
+            return True
+        
+        else:
+            return False
 
 miCarro = Carro() ####Instanciando una clase
 
