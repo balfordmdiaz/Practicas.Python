@@ -68,11 +68,16 @@ print(miFurgoneta.cargar(True))
 
 
 
-class VElectricos():
+class VElectricos(Vehiculo):
 
-    def __init__(self):
+    def __init__(self, marca, modelo):
 
+        super().__init__(marca, modelo)
         self.autonomia = 100
+    
+    def estado(self):
+
+        super().estado()
 
     def cargareEnergia(self):
 
@@ -80,10 +85,11 @@ class VElectricos():
 
 
 
-class BiciElectrica(Vehiculo, VElectricos):#Toma como prioridad los valores del constructor de la primera clase mencionada
+class BiciElectrica(VElectricos, Vehiculo):#Toma como prioridad los valores del constructor de la primera clase mencionada
     pass
 
 
-miBici = BiciElectrica("HZ", "BMX") 
+miBici = BiciElectrica("HZ", "BMX")
+miBici.estado()
 
 
