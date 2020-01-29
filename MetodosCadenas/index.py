@@ -22,3 +22,22 @@ replace = cambia una letra o palabra por otra
 rfind = representa el indice de una letra, contando desde el principio del string
 
 '''
+
+edad = input("Introduce la edad: ")
+
+while(edad.isdigit()==False):       ###Metodo excepcion
+
+    print("Por favor, introduce un valor numerico")
+
+    edad = input("Introduce la edad: ")
+
+if (int(edad)<18):
+
+    print("No puede pasar")
+
+else:
+
+    print("Puedes pasar")
+
+
+
